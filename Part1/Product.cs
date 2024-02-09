@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prog_OOP_Midterm_Part1
 {
-    public class Product
+    public abstract class Product
     {
         public string Name { get; set; }
         public double Price { get; set; }
@@ -18,16 +18,19 @@ namespace Prog_OOP_Midterm_Part1
             Price=price;
         }
 
-        public virtual void DisplayProductInfo()
-        {
-            Console.WriteLine("Producnt Information");
-            Console.WriteLine($"Name : {Name}");
-            Console.WriteLine($"Price : ${Price}");
-            //    Console.WriteLine($"Size : {Size}");
-            //    Console.WriteLine($"Color : {Color}");
-            //    Console.WriteLine($"Brand : {Brand}");
-            //    Console.WriteLine($"Expiry Date : {ExpiryDate}");
-        }
+        //public virtual void DisplayProductInfo()
+        //{
+        //    Console.WriteLine("Producnt Information");
+        //    Console.WriteLine($"Name : {Name}");
+        //    Console.WriteLine($"Price : ${Price}");
+        //    //    Console.WriteLine($"Size : {Size}");
+        //    //    Console.WriteLine($"Color : {Color}");
+        //    //    Console.WriteLine($"Brand : {Brand}");
+        //    //    Console.WriteLine($"Expiry Date : {ExpiryDate}");
+        //}
+
+        public abstract void DisplayProductInfo();
+
 
     }
 }

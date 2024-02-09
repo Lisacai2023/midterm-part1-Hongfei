@@ -36,14 +36,14 @@
 
             Groceries banana = new Groceries("Banana", 0.99, "2024-02-15");
             banana.DisplayProductInfo();
-            //Clothing tShirt = new Clothing("T-Shirt", 19.99, "Medium", "Red");
-            //tShirt.DisplayProductInfo();
+            Clothing tShirt = new Clothing("T-Shirt", 19.99, "Medium", "Red");
+            tShirt.DisplayProductInfo();
             Electronics smartphone = new Electronics("Smartphone", 799.99, "Apple");
             smartphone.DisplayProductInfo();
 
 
             List <Product> products = new List<Product>();
-            //products.Add(tShirt); 
+            products.Add(tShirt);
             products.Add(smartphone);
             products.Add(banana);
 
@@ -52,6 +52,22 @@
             foreach (Product product in products)
             {
                 product.DisplayProductInfo();
+            }
+
+            //Using our updateConfig metho to change our connectio string. Make sure to pass in the correct information
+            Config.UpdateConnectionString("CramberryFarms", "training", "Admin", "1234");
+
+            //Saving the connectionString to a local variable
+            string connectionString = Config.ConnectionString;
+            Database db = Database.ConnectToDatabase(connectionString);
+
+            List<Product> data = db.Data();
+
+            Console.WriteLine("-------------Page4 Database connection-------------------");
+
+            foreach (Product d in data)
+            {
+                d.DisplayProductInfo();
             }
 
 
