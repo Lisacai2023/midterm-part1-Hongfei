@@ -13,6 +13,7 @@ namespace Prog_OOP_Midterm_Part1
 
         static MyDatabase()
         {
+            // Test sentence
             data = new List<Product>();
             Console.WriteLine("The list is loading");
             Clothing tShirt = new Clothing("T-shirt", 19.99, "Medium", "Red");
