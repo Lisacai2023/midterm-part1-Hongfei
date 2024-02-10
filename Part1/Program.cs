@@ -1,4 +1,9 @@
-﻿namespace Prog_OOP_Midterm_Part1
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Http.Headers;
+using System.Xml.Serialization;
+
+namespace Prog_OOP_Midterm_Part1
 {
     //Midterm_Part1
     //Hongfei
@@ -63,15 +68,112 @@
 
             List<Product> data = db.Data();
 
+            //Saving a reference to an object in our list
+            Product testGetType = data[0];
+
+            //Display the type of the object
+            Console.Write(testGetType.GetType());
+
+            //Saving a local variable holding the type fo a specific object, here groceries
+            Type groceryType = typeof(Groceries);
+
+            //Comparing GetType to typeof(Groceries)
+            bool sameType = testGetType.GetType() == groceryType;
+
+            //Printing the result
+            Console.WriteLine($"Are they the same time:{sameType}");
+
             Console.WriteLine("-------------Page4 Database connection-------------------");
 
-            foreach (Product d in data)
+            //foreach (Product d in data)
+            //{
+            //    d.DisplayProductInfo();
+            //}
+
+            bool exit = false;
+            while(!exit)
             {
-                d.DisplayProductInfo();
+                Console.WriteLine("Main Menu");
+                Console.WriteLine("1. Display All Items");
+                Console.WriteLine("2. Dislay Electronics");
+                Console.WriteLine("3. Display Groceries");
+                Console.WriteLine("4. Display Clothing");
+                Console.WriteLine("5. Exit");
+
+                int choice = int.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        DisplayAllItems(data);
+                        break;
+                    case 2:
+                        DisplayElectronics(data);
+                        break;
+                    case 3:
+                        DisplayGroceries(data);
+                        break;
+                    case 4:
+                        DisplayClothing(data);
+                        break;
+                    case 5:
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+
+
+                }
+
+
             }
 
+        }
+
+        static void DisplayAllItems(List<Product> data)
+        {
+            foreach (Product product in data)
+            {
+                product.DisplayProductInfo();
+            }
+        }
+
+        static void DisplayElectronics(List<Product> data)
+        {
+            foreach (Product product in data)
+            {
+                if (product.GetType() == typeof(Electronics))
+                {
+                    product.DisplayProductInfo();
+                }
+            }
+        }
+
+        static void DisplayGroceries(List<Product> data)
+        {
+            foreach (Product product in data)
+            {
+                product.DisplayProductInfo();
+            }
+        }
+
+        static void DisplayClothing(List<Product> data)
+        {
+            foreach (Product product in data)
+            {
+                product.DisplayProductInfo();
+            }
+        }
 
 
-        }        
+
+
+
+
     }
+
+
+
+
 }

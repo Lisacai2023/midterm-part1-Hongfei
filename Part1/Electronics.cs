@@ -17,7 +17,7 @@ namespace Prog_OOP_Midterm_Part1
 
         public override void DisplayProductInfo()
         {
-            Console.WriteLine($"Electronic Pruduct : {Name}, Brand : {Brand}, Price : ${Price}");
+            Console.WriteLine($"Electronic Product : {Name}, Brand : {Brand}, Price : ${Price}");
         }
 
     }
